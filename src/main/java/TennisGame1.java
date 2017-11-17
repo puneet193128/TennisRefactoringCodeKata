@@ -8,6 +8,7 @@ public class TennisGame1 implements TennisGame {
     private String player2Name;
     private static HashMap<Integer, String> defaultScoreMap;
     private final GiveScoreStrategy scoreEqualStrategy;
+    private final DefaultScoreStrategy defaultScoreStrategy;
 
 
     static {
@@ -23,6 +24,7 @@ public class TennisGame1 implements TennisGame {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         scoreEqualStrategy = new ScoreEqualStrategy();
+        defaultScoreStrategy = new DefaultScoreStrategy();
     }
 
     public void wonPoint(String playerName) {
@@ -55,9 +57,10 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            String scorePlayer1 = defaultScoreMap.get(m_score1);
+           /* String scorePlayer1 = defaultScoreMap.get(m_score1);
             String scorePlayer2 = defaultScoreMap.get(m_score2);
-            return defaultScoreMap.get(m_score1) + "-" + defaultScoreMap.get(m_score2);
+            return defaultScoreMap.get(m_score1) + "-" + defaultScoreMap.get(m_score2);*/
+           return defaultScoreStrategy.getScore(m_score1,m_score2);
         }
         return score;
     }
