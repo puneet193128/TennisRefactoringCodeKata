@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class DefaultScoreStrategy {
+public class DefaultScoreStrategy implements GiveScoreStrategy {
 
     private static HashMap<Integer, String> defaultScoreMap;
     static {
